@@ -19,7 +19,7 @@ A 2d Endless Runner Game made with Bevy Game Engine.
 ```
 $ cargo run --release
 ```
-It may take a while but you will have the game executable available in the new _**targets**_ folder
+It may take a while but next time you run the command the version will be already built
 
 ## Screenshots
 * Full Game View

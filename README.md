@@ -11,7 +11,7 @@ A 2d Endless Runner Game made with Bevy Game Engine.
 ### Disclaimer
 This repository corresponds to a personal project. I do not take any responsibility over any code faults and do not take any credit for the sprites and sounds displayed throughout the game.
 
-## Screenshots
+### Screenshots
 
 * Full Game View
 ![gif 1](images/gifs/game_gif.gif)

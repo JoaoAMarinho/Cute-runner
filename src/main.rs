@@ -78,7 +78,6 @@ fn setup(
     mut materials: ResMut<Assets<ColorMaterial>>,
     mut windows: ResMut<Windows>,
     mut texture_atlases: ResMut<Assets<TextureAtlas>>,
-    audio: Res<Audio>
 ){
     let window = windows.get_primary_mut().unwrap();
     

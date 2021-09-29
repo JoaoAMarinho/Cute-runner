@@ -34,6 +34,9 @@ pub struct Materials {
     enemies: Handle<TextureAtlas>,
     font: Handle<Font>
 }
+pub struct Sounds {
+    jump: Handle<AudioSource>
+}
 pub struct WinSize {
     w: f32,
     h: f32
@@ -75,6 +78,7 @@ fn setup(
     mut materials: ResMut<Assets<ColorMaterial>>,
     mut windows: ResMut<Windows>,
     mut texture_atlases: ResMut<Assets<TextureAtlas>>,
+    audio: Res<Audio>
 ){
     let window = windows.get_primary_mut().unwrap();
     
@@ -106,7 +110,11 @@ fn setup(
         });
     commands
         .insert_resource(Gravity(45.*25.));
-    
+    commands
+        .insert_resource(Sounds{
+            jump: asset_server.load("sounds/jump.mp3")
+        });
+
     //Spawn background
     commands.spawn_bundle(SpriteBundle {
         material: materials.add(asset_server.load(BACKGROUND_IMG).into()),

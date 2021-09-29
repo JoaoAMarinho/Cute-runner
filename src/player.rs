@@ -4,7 +4,7 @@ use enemies::*;
 use gamestate::{GameState};
 use bevy::sprite::collide_aabb::collide;
 
-use crate::{Materials, WinSize, TIME_STEP};
+use crate::{Materials, Sounds, WinSize, TIME_STEP};
 use crate::{Animation, LoopAnim};
 use crate::{PLAYER_SIZE, ENEMY_SIZE};
 use crate::physics;
@@ -123,6 +123,8 @@ fn player_movement(
 
 fn player_jump(
     kb: Res<Input<KeyCode>>,
+    audio: Res<Audio>,
+    sounds: Res<Sounds>,
     win_size: Res<WinSize>,
     alive: Res<PlayerAlive>,
     mut query: Query<(&mut Transform, &mut Animation, 
@@ -137,6 +139,8 @@ fn player_jump(
             anim.size = 30;
 
             velocity.0.y = 19.*30.;
+
+            audio.play(sounds.jump.clone());
         }
         
         if transform.translation.y <  (- win_size.h/2. + 160.0) {
